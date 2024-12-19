@@ -2,33 +2,28 @@ const mongoose = require('mongoose');
 const Schema = mongoose.Schema;
 
 const bookSchema = new Schema({
-    Book_S_No: {
-        type: Number,
-        required: true,
-        unique: true
-    },
+
     Book_Name: {
         type: String,
-        required: true
+        required: true,
     },
+
     Book_Author: {
         type: String,
-        required: true
+        required: true,
     },
-    Owner_ID: {
-        type: Schema.Types.ObjectId,
-        ref: 'Owner',
-        required: true
+
+    Genre: {
+        type: String,
+        required: false,
     },
-    Loaned_To_User_ID: {
-        type: Schema.Types.ObjectId, 
-        ref: 'User',
-        required: false
+
+    ISBN: {
+        type: String,
+        required: false,
+        unique: true,
     },
-    Status: {
-        type: String, 
-        required: true
-    }
+
 });
 
 const Book = mongoose.model('Book', bookSchema);
